@@ -1,4 +1,4 @@
-# react-skeleton-ui
+# react-skeleton-blocks
 
 > Set of React Skeleton UI components for loading content
 
@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save react-skeleton-ui
+npm install --save react-skeleton-blocks
 ```
 
 ## Usage
