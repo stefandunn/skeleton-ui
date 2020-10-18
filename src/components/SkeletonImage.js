@@ -10,6 +10,9 @@ const SkeletonImage = ({ children, src, width, height, alt, ...props }) => (
       width={width}
       alt={alt}
       style={props.style}
+      onLoad={(e) => {
+        e.target.classList.remove('skeleton-ui-loader')
+      }}
     />
   </SkeletonWrapper>
 )
