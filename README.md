@@ -21,7 +21,7 @@ import React, {useState, useEffect} from 'react'
 
 import {
   SkeletonText
-} from 'skeleton-ui'
+} from 'react-skeleton-blocks'
 
 class Example extends Component {
 
@@ -52,7 +52,7 @@ import axios from 'axios'
 
 import {
   SkeletonParagraph
-} from 'skeleton-ui'
+} from 'react-skeleton-blocks'
 
 class Example extends Component {
 
@@ -83,7 +83,7 @@ The below example will render a skeleton-ui image component, which is a rectangu
 ```jsx
 import React from 'react'
 
-import { SkeletonImage } from 'skeleton-ui'
+import { SkeletonImage } from 'react-skeleton-blocks'
 
 class Example extends Component {
   render() {
@@ -145,7 +145,7 @@ A simple skeleton-ui component which displays a circular shape until an image is
 ```jsx
 import React from 'react'
 
-import { SkeletonAvatar } from 'skeleton-ui'
+import { SkeletonAvatar } from 'react-skeleton-blocks'
 
 class Example extends Component {
   render() {
@@ -167,7 +167,7 @@ skeleton-ui comes with 3 types of shapes, Rectangle, Square and Circle.
 ```jsx
 import React from 'react'
 
-import { SkeletonCircle, SkeletonRectangle, SkeletonSquare } from 'skeleton-ui'
+import { SkeletonCircle, SkeletonRectangle, SkeletonSquare } from 'react-skeleton-blocks'
 
 class Example extends Component {
   render() {
