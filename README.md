@@ -109,7 +109,7 @@ import axios from 'axios'
 
 import {
   SkeletonMultiBlocks
-} from 'skeleton-ui'
+} from 'react-skeleton-blocks'
 
 class Example extends Component {
 
