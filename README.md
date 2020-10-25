@@ -231,6 +231,33 @@ class Example extends Component {
 - `blocks` prop determines the number of blocks to represent in the skeleton-ui component, default `3`
 - `linesPerParagraph` prop determines the number of lines for the paragraph skeleton-ui component, default `3`
 
+## UMD Distribution Usage
+
+All blocks are distributed under the ReactSkeletonBlocks scope attached to the browser's window.
+
+### Package
+
+You can point to the react-skeleton-blocks.umd.js file within a `<script>` tag:
+
+```
+<script src"./dist/react-skeleton-blocks.umd.js"></script>
+```
+
+### Using Blocks
+
+Very similar to the above samples, but you will need to specify the scope, `ReactSkeletonBlocks`, so for example:
+
+```javascript
+ReactDOM.render(
+  <ReactSkeletonBlocks.SkeletonAvatar
+    radius='80'
+    src='https://source.unsplash.com/random/100x100'
+    alt='Preloaded from Unsplash'
+  />,
+  document.getElementById('root')
+)
+```
+
 ## License
 
 MIT © [stefandunn](https://github.com/stefandunn)
