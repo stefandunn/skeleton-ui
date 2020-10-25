@@ -1,6 +1,6 @@
 {
   "name": "react-skeleton-blocks",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Skeleton UI components for loading elements",
   "author": "stefandunn",
   "license": "MIT",
@@ -48,7 +48,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "^4.0.0",
-    "babel-jest": "^24.9.0"
+    "babel-jest": "^26.6.0"
   },
   "files": [
     "dist"
