@@ -3,8 +3,11 @@ import SkeletonStyle from '../util/SkeletonStyle'
 import SkeletonWrapper from '../util/SkeletonWrapper'
 import SkeletonImageParagraph from './SkeletonImageParagraph'
 import SkeletonParagraph from './SkeletonParagraph'
+import UseReveal from '../hooks/useReveal'
 
-const SkeletonMultiBlocks = ({ children, hideWhen, noImages, ...props }) => {
+const SkeletonMultiBlocks = ({ children, noImages, ...props }) => {
+  const reveal = UseReveal({ children, props })
+
   const renderMultiBlock = () => {
     const blocks = []
     for (let i = 0; i < props.blocks; i++) {
@@ -27,7 +30,7 @@ const SkeletonMultiBlocks = ({ children, hideWhen, noImages, ...props }) => {
 
   return (
     <SkeletonWrapper speed={props.speed}>
-      {children || hideWhen ? (
+      {reveal ? (
         <>{children}</>
       ) : (
         <div

@@ -1,8 +1,11 @@
 import React from 'react'
-import SkeletonText from '../shapes/Rectangle'
+import SkeletonText from './SkeletonText'
 import SkeletonWrapper from '../util/SkeletonWrapper'
+import UseReveal from '../hooks/useReveal'
 
-const SkeletonParagraph = ({ children, hideWhen, ...props }) => {
+const SkeletonParagraph = ({ children, ...props }) => {
+  const reveal = UseReveal({ children, props })
+
   const renderLines = () => {
     const lines = []
     for (let i = 0; i < props.linesPerParagraph; i++) {
@@ -20,7 +23,7 @@ const SkeletonParagraph = ({ children, hideWhen, ...props }) => {
 
   return (
     <SkeletonWrapper speed={props.speed}>
-      {children || hideWhen ? (
+      {reveal ? (
         <>{children}</>
       ) : (
         <div

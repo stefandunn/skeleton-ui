@@ -2,12 +2,20 @@ import React from 'react'
 import SkeletonWrapper from '../util/SkeletonWrapper'
 import SkeletonStyle from '../util/SkeletonStyle'
 import SkeletonParagraph from './SkeletonParagraph'
-import Rectangle from '../shapes/Rectangle'
+import SkeletonRectangle from '../shapes/SkeletonRectangle'
+import UseReveal from '../hooks/useReveal'
 
-const SkeletonImageParagraph = ({ children, hideWhen, ...props }) => {
+const SkeletonImageParagraph = ({
+  children,
+  hideWhen = null,
+  showWhen = null,
+  ...props
+}) => {
+  const reveal = UseReveal({ children, props })
+
   return (
     <SkeletonWrapper speed={props.speed}>
-      {children || hideWhen ? (
+      {reveal ? (
         <>{children}</>
       ) : (
         <>
@@ -15,7 +23,7 @@ const SkeletonImageParagraph = ({ children, hideWhen, ...props }) => {
             <div
               className={`${props.inheritClass} skeleton-ui-multi-block ${props.className}`}
             >
-              <Rectangle
+              <SkeletonRectangle
                 {...props}
                 style={{
                   width: props.imageWidth,
@@ -30,7 +38,7 @@ const SkeletonImageParagraph = ({ children, hideWhen, ...props }) => {
               className={`${props.inheritClass} skeleton-ui-multi-block ${props.className}`}
             >
               <SkeletonParagraph {...props} width={props.lineWidth} />
-              <Rectangle
+              <SkeletonRectangle
                 {...props}
                 style={{
                   width: props.imageWidth,

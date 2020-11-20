@@ -7,7 +7,8 @@ import {
   SkeletonImage,
   SkeletonAvatar,
   SkeletonImageParagraph,
-  SkeletonMultiBlocks
+  SkeletonMultiBlocks,
+  SkeletonRectangle
 } from 'skeleton-ui'
 
 import axios from 'axios'
@@ -19,6 +20,9 @@ const App = () => {
   const [imageText, setImageText] = useState(null)
   const [multiBlock, setMultiBlock] = useState(null)
 
+  const [showWhenVal, setShowWhenVal] = useState(null)
+  const [hideWhenVal, setHidewhenVal] = useState(null)
+
   const placeholderImg =
     'https://images.unsplash.com/photo-1598132204781-cd70d4ed59a0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&ixlib=rb-1.2.1&q=80&w=400'
 
@@ -26,7 +30,11 @@ const App = () => {
     // Text
     axios
       .get('https://baconipsum.com/api/?type=all-meat&start-with-lorem=1')
-      .then((res) => setText(res.data[0].split('.')[0]))
+      .then((res) => {
+        setTimeout(() => {
+          setText(res.data[0].split('.')[0])
+        }, 3000)
+      })
 
     // Paragraph
     axios
@@ -120,12 +128,10 @@ const App = () => {
 			`
         }}
       />
-      <div className='w-full max-w-screen-xl mx-auto px-6' id='examples'>
+      <div className='w-full max-w-screen-xl mx-auto px-6 my-5' id='examples'>
         <div className='grid grid-cols-1'>
           <div className='mb-4'>
-            <h1 className='text-5xl font-thin text-purple-600'>
-              Loading Components
-            </h1>
+            <h1 className='text-4xl font-thin text-purple-600'>Components</h1>
           </div>
 
           <div>
@@ -133,7 +139,7 @@ const App = () => {
               <h5 className='text-xl text-blue-500'>Avatar</h5>
               <SkeletonAvatar
                 radius='80'
-                src='https://source.unsplash.com/random/100x100'
+                src='https://source.unsplash.com/random/600x600'
                 alt='Preloaded from Unsplash'
               />
             </div>
@@ -189,6 +195,51 @@ const App = () => {
                 alt='Preloaded from Unsplash'
               />
             </div>
+          </div>
+        </div>
+        <div>
+          <div className='mt-5 p-4 bg-gray-100 shadow-sm rounded-sm'>
+            <h5 className='text-xl text-blue-500'>Rectangle</h5>
+            <h6 className='text-xl text-blue-500'>
+              Show content when button is clicked
+            </h6>
+            <button
+              className='bg-green-300 text-white px-4 py-1 rounded-md m-1'
+              onClick={() => {
+                setShowWhenVal(true)
+              }}
+            >
+              Show
+            </button>
+            <SkeletonRectangle showWhen={showWhenVal}>
+              Content
+            </SkeletonRectangle>
+            <SkeletonImage
+              src='https://source.unsplash.com/random/600x600'
+              showWhen={showWhenVal}
+            />
+            <h6 className='text-xl text-blue-500'>
+              Hide content when button clicked
+            </h6>
+            <button
+              className='bg-green-300 text-white px-4 py-1 rounded-md m-1'
+              onClick={() => {
+                setHidewhenVal(true)
+              }}
+            >
+              Hide
+            </button>
+            <SkeletonRectangle hideWhen={hideWhenVal}>
+              Content
+            </SkeletonRectangle>
+            <SkeletonImage
+              src='https://source.unsplash.com/random/600x600'
+              hideWhen={hideWhenVal}
+            />
+            <h6 className='text-xl text-blue-500'>
+              Show content when becomes available
+            </h6>
+            <SkeletonRectangle debug={true}>{text}</SkeletonRectangle>
           </div>
         </div>
       </div>

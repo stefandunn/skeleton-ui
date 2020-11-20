@@ -5,9 +5,9 @@ import SkeletonImage from './components/SkeletonImage'
 import SkeletonImageParagraph from './components/SkeletonImageParagraph'
 import SkeletonMultiBlocks from './components/SkeletonMultiBlocks'
 import SkeletonAvatar from './components/SkeletonAvatar'
-import SkeletonRectangle from './shapes/Rectangle'
-import SkeletonCircle from './shapes/Circle'
-import SkeletonSquare from './shapes/Square'
+import SkeletonRectangle from './shapes/SkeletonRectangle'
+import SkeletonCircle from './shapes/SkeletonCircle'
+import SkeletonSquare from './shapes/SkeletonSquare'
 
 export {
   SkeletonRectangle,

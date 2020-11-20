@@ -1,15 +1,13 @@
 import React from 'react'
 import SkeletonImage from './SkeletonImage'
 
-const SkeletonAvatar = (props) => {
-  return (
-    <SkeletonImage
-      width={props.radius * 2}
-      height={props.radius * 2}
-      {...props}
-    />
-  )
-}
+const SkeletonAvatar = (props) => (
+  <SkeletonImage
+    width={props.radius * 2}
+    height={props.radius * 2}
+    {...props}
+  />
+)
 
 SkeletonAvatar.defaultProps = {
   hideWhen: null,

@@ -1,8 +1,16 @@
 import React from 'react'
 import SkeletonWrapper from '../util/SkeletonWrapper'
 import SkeletonParagraph from './SkeletonParagraph'
+import UseReveal from '../hooks/useReveal'
 
-const SkeletonTextBlock = ({ children, hideWhen, ...props }) => {
+const SkeletonTextBlock = ({
+  children,
+  hideWhen = null,
+  showWhen = null,
+  ...props
+}) => {
+  const reveal = UseReveal({ children, props })
+
   const renderParagraphs = () => {
     const paragraphs = []
     for (let i = 0; i < props.paragraphs; i++) {
@@ -14,7 +22,7 @@ const SkeletonTextBlock = ({ children, hideWhen, ...props }) => {
 
   return (
     <SkeletonWrapper speed={props.speed}>
-      {children || hideWhen ? (
+      {reveal ? (
         <>{children}</>
       ) : (
         <div

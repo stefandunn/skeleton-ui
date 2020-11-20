@@ -1,23 +1,33 @@
 import React from 'react'
-import Rectangle from '../shapes/Rectangle'
+import SkeletonRectangle from '../shapes/SkeletonRectangle'
 import SkeletonWrapper from '../util/SkeletonWrapper'
+import UseReveal from '../hooks/useReveal'
 
-const SkeletonText = ({ children, hideWhen, ...props }) => (
-  <SkeletonWrapper speed={props.speed}>
-    {children || hideWhen ? (
-      <>{children}</>
-    ) : (
-      <div
-        className={`${props.inheritClass} skeleton-ui-text ${props.className}`}
-      >
-        <Rectangle
-          inheritClass={props.inheritClass}
-          style={{ ...props.style, width: props.width }}
-        />
-      </div>
-    )}
-  </SkeletonWrapper>
-)
+const SkeletonText = ({
+  children,
+  hideWhen = null,
+  showWhen = null,
+  ...props
+}) => {
+  const reveal = UseReveal({ children, props })
+
+  return (
+    <SkeletonWrapper speed={props.speed}>
+      {reveal ? (
+        <>{children}</>
+      ) : (
+        <div
+          className={`${props.inheritClass} skeleton-ui-text ${props.className}`}
+        >
+          <SkeletonRectangle
+            inheritClass={props.inheritClass}
+            style={{ ...props.style, width: props.width }}
+          />
+        </div>
+      )}
+    </SkeletonWrapper>
+  )
+}
 
 SkeletonText.defaultProps = {
   hideWhen: null,

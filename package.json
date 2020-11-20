@@ -1,6 +1,6 @@
 {
   "name": "react-skeleton-blocks",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "React Skeleton UI components for loading elements",
   "author": "stefandunn",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "microbundle-crl --compress --format modern,cjs,umd --jsxFragment React.Fragment --css-modules true --globals react=React --name ReactSkeletonBlocks",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs --jsxFragment React.Fragment",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs,umd --jsxFragment React.Fragment",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -31,7 +31,7 @@
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
-    "eslint": "^6.8.0",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
@@ -48,6 +48,9 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "^4.0.0",
+    "babel-jest": "^26.6.0"
+  },
+  "resolutions": {
     "babel-jest": "^26.6.0"
   },
   "files": [
