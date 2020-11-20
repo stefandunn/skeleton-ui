@@ -5,12 +5,7 @@ import SkeletonParagraph from './SkeletonParagraph'
 import SkeletonRectangle from '../shapes/SkeletonRectangle'
 import UseReveal from '../hooks/useReveal'
 
-const SkeletonImageParagraph = ({
-  children,
-  hideWhen = null,
-  showWhen = null,
-  ...props
-}) => {
+const SkeletonImageParagraph = ({ children, ...props }) => {
   const reveal = UseReveal({ children, props })
 
   return (

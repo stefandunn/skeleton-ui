@@ -3,12 +3,7 @@ import SkeletonRectangle from '../shapes/SkeletonRectangle'
 import SkeletonWrapper from '../util/SkeletonWrapper'
 import UseReveal from '../hooks/useReveal'
 
-const SkeletonText = ({
-  children,
-  hideWhen = null,
-  showWhen = null,
-  ...props
-}) => {
+const SkeletonText = ({ children, ...props }) => {
   const reveal = UseReveal({ children, props })
 
   return (

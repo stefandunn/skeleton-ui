@@ -3,12 +3,7 @@ import SkeletonWrapper from '../util/SkeletonWrapper'
 import SkeletonParagraph from './SkeletonParagraph'
 import UseReveal from '../hooks/useReveal'
 
-const SkeletonTextBlock = ({
-  children,
-  hideWhen = null,
-  showWhen = null,
-  ...props
-}) => {
+const SkeletonTextBlock = ({ children, ...props }) => {
   const reveal = UseReveal({ children, props })
 
   const renderParagraphs = () => {
